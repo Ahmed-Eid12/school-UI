@@ -1,0 +1,38 @@
+.register-container {
+    margin: 20px 120px;
+    text-align: center;
+}
+form {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr ; */
+    grid-gap: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+form div.section {
+    border: 1px solid #929292;
+    border-radius: 10px;
+    background-color: rgb(238, 238, 238);
+    box-shadow: 5px 10px 10px #6c757d;
+    padding: 25px;
+    width: 60%;
+    margin: 10px;
+    text-align: left;
+}
+.selection {
+    display: flex;
+    margin-top: 15px;
+    flex-direction: column;
+}
+.register-title {
+    font-weight: bold;
+    color: teal;
+} 
+label {
+    color: rgb(13, 32, 32);
+}
+.custom-select {
+    width: 100%;
+}

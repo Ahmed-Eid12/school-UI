@@ -1,0 +1,42 @@
+<div class="register-container">
+  <h3 class="register-title">User Registration</h3>
+    <form class="needs-validation" id="reg" [formGroup]='formGroup'>
+        <div class="first-section section">
+
+             <div class=""> <!--col-md-6 mb-3 -->
+              <label for="validationTooltip01">User Name:</label>
+              <input type="text" class="form-control" formControlName='username' id="username" name="username" aria-describedby="basic-addon2" required>
+            </div>
+            <div class="">
+              <label for="validationTooltip01">Email:</label>
+                <div class="input-group-append" style="display: flex;">
+                    <input type="text" class="form-control" formControlName='email' id="email" name="email" aria-describedby="basic-addon2">
+                    
+                      <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+                    
+                  </div>
+                  <small id="emailHelp" class="form-text text-muted">please email must end with '@gmail.com'</small>
+            </div>
+            <div class="">
+              <label for="validationTooltip03">Password:</label>
+              <input type="password" class="form-control" formControlName='password' id="password" name="password" aria-describedby="basic-addon2" required>
+            </div>
+            <div class="">
+              <label for="validationTooltip03">Confirm Password:</label>
+              <input type="password" class="form-control" formControlName='cpassword' id="cpassword" name="cpassword" aria-describedby="basic-addon2" required>
+            </div>
+            <button class="btn btn-primary" (click)="register()" type="submit">Register</button>
+        </div>
+        <div class="section-two section">
+          <img src="assets/officer.jpg" >
+          <div class="info-img">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil atque necessitatibus, 
+              placeat maiores fugit quos? Quod dolores excepturi est, rem iusto, 
+              sit repudiandae, perferendis accusantium magni eius culpa. Rerum, dignissimos?</p>
+          </div>
+        </div>
+        
+        
+      </form>
+      
+</div>

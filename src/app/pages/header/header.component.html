@@ -1,0 +1,13 @@
+<div class="nav-bar">
+    <div class="nav-cnotact">
+        <a [routerLink]="['/login']" *ngIf='!userLoginStatus'>Login</a>
+        <a [routerLink]="['/register']" *ngIf='userIsAdmin !== 0'>Register</a>
+        <a [routerLink]="['/home']">Home</a>
+    </div>
+    <div class="container">
+        <h3>SCHOOL E2SS</h3>
+    </div>
+    <div class="avatar-content">
+        <img src="assets/avatar.svg">
+    </div>
+</div>

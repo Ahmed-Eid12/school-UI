@@ -1,0 +1,109 @@
+<div class="register-container">
+    <h3 class="register-title">User Registration</h3>
+      <form class="needs-validation" id="reg" [formGroup]='formGroup'>
+        <div class="second-section section">
+
+            <div class="input-group selection mb-3">
+                        <label for="user-section">User Section:</label>
+                        <!-- <select class="custom-select " (change)="parentisSection($event.target.value)" formControlName="userSection" id="user-section">
+                          <option selected>Choose...</option>
+                          <option *ngFor="let userSection of userSectionList" [value]="userSection.id">{{userSection.sction}}</option>
+                        </select> -->
+                      </div>
+                      
+                      <div class="">
+                        <label for="phone">Phone:</label>
+                        <input type="text" class="form-control" placeholder="(999 9999 9999)" formControlName='phone' id="phone" name="phone">
+                      </div>
+            
+                      <div class="">
+                        <label for="pre-degree">Previous Degree:</label>
+                        <input type="text" class="form-control" formControlName='preDegree' id="pre-degree" name="preDegree">
+                      </div>
+
+                      <div class="">
+                        <label for="class-name">Class Name:</label>
+                        <input type="text" class="form-control" formControlName='className' id="class-name" name="className">
+                      </div>
+                    </div>
+            
+                    <div class="third-section section">
+                      <div class="">
+                        <label for="address">Address:</label>
+                        <textarea type="text" class="form-control" formControlName='address' cols="20" rows="3" id="address" name="address"></textarea>
+                      </div>
+            
+                      <div class="">
+                        <label for="country">Country:</label>
+                        <input type="text" class="form-control" formControlName='country' id="country" name="country">
+                      </div>
+            
+                      <div class="">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" formControlName='city' id="city" name="city">
+                      </div>
+                    </div>
+
+                    <div class="fourth-section section">
+                      <div class="">
+                        <label for="qualification">qualifications:</label>
+                        <textarea type="text" class="form-control" formControlName='qualification' cols="20" rows="3" id="qualification" name="qualification"></textarea>
+                      </div>
+            
+                      <div class="">
+                        <label for="card-id">Card ID:</label>
+                        <input type="text" class="form-control" formControlName='cardId' id="card-id" name="cardId">
+                      </div>
+            
+                      <div class="">
+                        <label for="ex-year">Experience Year NO:</label>
+                        <input type="text" class="form-control" formControlName='experienceYear' id="ex-year" name="experienceYear">
+                      </div>
+                    </div>
+         
+        </form>
+        <br>
+        <hr>
+        <br>
+        <form [formGroup]='formParentisGroup'>
+
+          <div class="sys-parentis section fifth-section">
+            <h3>Student Parentis:</h3>
+            <div class="">
+              <label for="father-name">Name:</label>
+              <input type="text" class="form-control" formControlName='parentisName' id="parentis-name" name="parentisName">
+            </div>
+            <div class="">
+              <label for="father-phone">Phone:</label>
+              <input type="text" class="form-control" placeholder="(999 9999 9999)" formControlName='parentisPhone' id="parentis-phone" name="parentisPhone">
+            </div>
+            <div class="">
+              <label for="father-address">Father Address:</label>
+              <input type="text" class="form-control" formControlName='parentisAddress' id="parentis-address" name="parentisAddress">
+            </div>
+          </div>
+        </form>
+
+        <br>
+        <hr>
+        <br>
+        <form [formGroup]='formPreJobGroup'>
+
+          <div class="sys-parentis section fifth-section">
+            <h3>Previous Job:</h3>
+            <div class="">
+              <label for="school-name">School Name:</label>
+              <input type="text" class="form-control" formControlName='schoolName' id="school-name" name="schoolName">
+            </div>
+            <div class="">
+              <label for="leave-reason">Leave Reason:</label>
+              <textarea type="text" class="form-control" formControlName='leaveReason' cols="20" rows="3" id="leave-reason" name="leaveReason"></textarea>
+            </div>
+            <div class="">
+              <label for="year-no">Year NO:</label>
+              <input type="text" class="form-control" formControlName='yearNO' id="year-no" name="yearNO">
+            </div>
+          </div>
+        </form>
+        
+  </div>

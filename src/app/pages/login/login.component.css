@@ -1,0 +1,41 @@
+.login-container {
+    margin: 20px 100px;
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.email-content {
+    display: flex;
+}
+form {
+    padding: 50px 40px;
+    border: 1px solid #929292;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 5px 10px 10px #6c757d;
+}
+form input[type='text'],input[type='password'] {
+    width: 600px;
+}
+.alert {
+    display: inline-block;
+    margin-left: 20px;
+}
+form .ng-touched.ng-invalid {
+    border: 1px solid rgb(255, 82, 82);
+}
+form .ng-active {
+    border: 1px solid rgb(255, 82, 82);
+}
+form .ng-valid {
+    border: 1px solid rgb(54, 134, 0);
+}
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.btn {
+    width: 100px;
+}

@@ -1,0 +1,39 @@
+.register-container {
+    margin: 20px 120px;
+}
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr ;
+    grid-gap: 20px;
+}
+form div.section {
+    border: 1px solid #929292;
+    border-radius: 10px;
+    background-color: rgb(238, 238, 238);
+    box-shadow: 5px 10px 10px #6c757d;
+    padding: 25px;
+}
+.btn {
+    margin-top: 20px;
+}
+.register-title {
+    font-weight: bold;
+    color: teal;
+} 
+label {
+    color: rgb(13, 32, 32);
+}
+.custom-select {
+    width: 100%;
+}
+.section-two img {
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px #6c757d;
+    margin-bottom: 20px;
+}
+.section-two p {
+    color: #6c757d;
+}

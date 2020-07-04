@@ -1,0 +1,26 @@
+<div class="login-container">
+    <form id="login" [formGroup]='formGroup'>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email:</label>
+          <div class="email-content">
+            <input type="email" class="form-control" formControlName='username' id="email" name="email" >
+            <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+          </div>
+          <small id="emailHelp" class="form-text text-muted">Please write your password as well add ( @ ) then gmail.com</small>
+          <p class="user-validation"></p> <!-- for validation -->
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password:</label>
+          <input type="password" class="form-control" id="password" formControlName='password' name="password">
+          <p class="pass-validation"></p> <!-- for validation -->
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="re-pass">
+          <label class="form-check-label" for="exampleCheck1">Remember Password</label>
+        </div>
+          <button type="submit" id="log" (click)='login()' class="btn btn-primary">Login</button>
+          <div class="alert alert-danger" *ngIf="alertMessage" role="alert">
+            {{alertMessage}}
+          </div>
+      </form>
+</div>
