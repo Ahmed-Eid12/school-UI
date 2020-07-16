@@ -1,2 +1,22 @@
-<p>user-profile works!</p>
-<a [routerLink]="['/login']">Login</a>
+<!-- <div class="body-home"> -->
+    <div class="user-profile-content">
+        <div class="layout">
+          <div class="header">
+            <app-header></app-header>
+          </div>
+          <div class="content">
+            <div class="section1 section set-section">
+              <div class="avatar-img">
+                <img src="assets/serverUsersImage/{{userLogin.userInformation.image}}">
+              </div>
+
+              <div class="user-info">
+                <h4>{{userLogin.userName}}</h4>
+                <h5>{{userLogin.userSection.sction}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      <!-- </div> -->
+    </div>

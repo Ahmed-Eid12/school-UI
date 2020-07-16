@@ -14,6 +14,8 @@ import { HeaderComponent } from './pages/header/header.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { UserInfoRegisterComponent } from './pages/user-info-register/user-info-register.component';
+import { SliderComponent } from './pages/slider/slider.component';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { UserInfoRegisterComponent } from './pages/user-info-register/user-info-
     HeaderComponent,
     NotFoundComponent,
     UserProfileComponent,
-    UserInfoRegisterComponent
+    UserInfoRegisterComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,8 @@ import { UserInfoRegisterComponent } from './pages/user-info-register/user-info-
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    // FontAwesomeModule,
+    // AngularFontAwesomeModule
   ],
   providers: [
   ],

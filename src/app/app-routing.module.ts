@@ -26,7 +26,7 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent,
-        // canActivate: [RegisterGuard]
+        canActivate: [RegisterGuard]
       },
       {
         path: 'userinforegister',

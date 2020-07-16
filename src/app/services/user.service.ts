@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { User } from '../user/user';
+import { User } from '../classServices/user';
 
 import {  } from 'rxjs/add/operator/catch'
+import { UserInformations } from '../classServices/user-informations';
 
 @Injectable({
   providedIn: 'root'
@@ -23,21 +24,13 @@ export class UserService {
   // user is admin or not
   userIsAdmin = 0;
 
+  // user registered code
+  userRegisteredCode = null;
+
+  // user registration id
+  userRegisteredId = 0;
+
   constructor(private http: HttpClient) { }
-
-  // subscribe on login
-  isLoggedIn = new BehaviorSubject(null);
-  loggedIn = this.isLoggedIn.asObservable();
-  changeLoggedInStatus(status) {
-    this.isLoggedIn.next(status);
-  }
-
-  // subscribe on token 
-  token = new BehaviorSubject(null);
-  tokenStatus = this.token.asObservable();
-  changeTokenStatus(status) {
-    this.token.next(status);
-  }
 
   // login web service
   /**
@@ -77,12 +70,46 @@ export class UserService {
    * 
    * @param user 
    * register() --- function --- 
+   * addNewUserParentis()
+   * addNewUserInformation()
    * return user that just register now
    * 
    * 
    */
   register(user: User) {
     return this.http.post('http://localhost:8080/userlogin/auth/register',user);
+  }
+
+  addNewUserParentis(parentis , userCode, sysParentisId,token) {
+    const headerDict = {
+      'Authorization': 'bearer '+token
+    }
+    
+    const requestOptions = {                                                                                                                                                                                 
+      headers: new HttpHeaders(headerDict), 
+    };
+
+    return this.http.post('http://localhost:8080/userlogin/auth/saveNewParentis/' + userCode + "/"+sysParentisId
+    , parentis ,requestOptions);
+  }
+
+  addNewUserInformation(userInfo , userCode , userSection , image,token) {
+    const headerDict = {
+      'Authorization': 'bearer '+token
+    }
+    
+    const requestOptions = {                                                                                                                                                                                 
+      headers: new HttpHeaders(headerDict), 
+    };
+
+    let formData = new FormData();
+    formData.append('userInfo' , JSON.stringify(userInfo));
+    formData.append('file' , image);
+    return this.http.post('http://localhost:8080/userlogin/auth/saveNewUserInfo/' + userCode+"/"+userSection , formData,requestOptions);
+  }
+
+  addNewPreviousJob(preJob , userId) {
+    return this.http.post('http://localhost:8080/userlogin/auth/saveNewPreviousJob/' + userId , preJob);
   }
 
   // get all web service

@@ -2,7 +2,7 @@
     margin: 20px 120px;
     text-align: center;
 }
-form {
+form , #form-group{
     /* display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr ; */
@@ -10,6 +10,9 @@ form {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+#form-group {
+    width: 100%;
 }
 form div.section {
     border: 1px solid #929292;
@@ -20,6 +23,9 @@ form div.section {
     width: 60%;
     margin: 10px;
     text-align: left;
+}
+#remove-job {
+    margin-top: 10px;
 }
 .selection {
     display: flex;
@@ -35,4 +41,10 @@ label {
 }
 .custom-select {
     width: 100%;
+}
+a.btn {
+    color: white;
+}
+label span {
+    color: red;
 }

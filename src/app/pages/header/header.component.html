@@ -1,6 +1,6 @@
 <div class="nav-bar">
     <div class="nav-cnotact">
-        <a [routerLink]="['/login']" *ngIf='!userLoginStatus'>Login</a>
+        <a [routerLink]="['/login']" *ngIf='!userLoginStatus'> Login</a>
         <a [routerLink]="['/register']" *ngIf='userIsAdmin !== 0'>Register</a>
         <a [routerLink]="['/home']">Home</a>
     </div>
@@ -8,6 +8,17 @@
         <h3>SCHOOL E2SS</h3>
     </div>
     <div class="avatar-content">
-        <img src="assets/avatar.svg">
+        <img #sora src="assets/avatar.svg" (click)='apperProfile()'>
+        <div #profile class="user-profile" [hidden]="apperDropDown">
+            <small>User Profile</small>
+            <h5 #userName>User name</h5>
+            <hr>
+            <div class="see-profile">
+                <a [routerLink]="['/profile']">See Profile</a>
+            </div>
+            <div id="logout">
+                <a (click)='logout()' class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
     </div>
 </div>

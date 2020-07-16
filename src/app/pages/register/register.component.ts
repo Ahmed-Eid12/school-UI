@@ -4,6 +4,8 @@ import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { CustomService } from 'src/app/services/custom.service';
 import { IntegrationService } from 'src/app/services/serviceIntegration/integration.service';
+import { User } from 'src/app/classServices/user';
+import { StoreDataService } from 'src/app/services/storage/store-data.service';
 
 @Component({
   selector: 'app-register',
@@ -16,14 +18,9 @@ export class RegisterComponent implements OnInit {
     private userService: UserService, 
     private router: Router, 
     private custom: CustomService,
-    private integration: IntegrationService
+    private integration: IntegrationService,
+    private storeData: StoreDataService
     ) { 
-    console.log(this.userService.status);
-    console.log(this.userService.getGeneratedToken);
-    console.log(this.userService.user);
-    this.userService.loggedIn.subscribe(res => {
-      console.log('fron register : '+res)
-    })
   }
 
   formGroup = new FormGroup({
@@ -34,13 +31,9 @@ export class RegisterComponent implements OnInit {
     
   });
 
-  sysParentisList;
   studentParentisStatus = false;
   ngOnInit(): void {
-    // get sys parentis to list
-    // this.integration.getAllUserSysParentisList(this.userService.getGeneratedToken).subscribe(sysParentis => {
-    //   this.sysParentisList = sysParentis;
-    // })
+    
   }
 
   register() {
@@ -49,8 +42,13 @@ export class RegisterComponent implements OnInit {
       let email: string = this.formGroup.get('email').value;
       this.formGroup.get('email').setValue(this.custom.checkEmail(email));
 
-      this.userService.register(this.formGroup.value).subscribe(result => {
-        console.log(result);
+      this.userService.register(this.formGroup.value).subscribe((result: User) => {
+        this.userService.userRegisteredCode = result.code;
+        this.storeData.storeElementWthoutSecret('_user_code', this.userService.userRegisteredCode);
+
+        this.userService.userRegisteredId = result.id;
+        this.storeData.storeElementWthoutSecret('_user_ids', this.userService.userRegisteredId);
+
         this.router.navigate(['/userinforegister']);
         
       }, error => {
@@ -61,14 +59,5 @@ export class RegisterComponent implements OnInit {
     }
     
   }
-
-  // // about user if student show parentis section
-  // parentisSection(deviceValue) {
-  //   if(deviceValue == 7) {
-  //     this.studentParentisStatus = true;
-  //   } else {
-  //     this.studentParentisStatus = false;
-  //   }
-  // }
 
 }
