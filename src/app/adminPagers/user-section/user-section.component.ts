@@ -16,6 +16,7 @@ import { CustomService } from 'src/app/services/custom.service';
 export class UserSectionComponent implements OnInit {
 
   formGroup = new FormGroup( {
+    'id': new FormControl(''),
     'sction': new FormControl('',[Validators.required])
   })
   constructor( private adminIntegration: AdminIntegrationService,
@@ -49,6 +50,7 @@ export class UserSectionComponent implements OnInit {
         this.adminIntegration.saveNewUsersSection(this.token,this.formGroup.value).subscribe(userSection => {
           if(userSection) {
             this.customService.changeSuccessMessage('user section saved successfully ...', 'success', 'SUCCESS!');
+            this.resetItems();
             this.getAllUsersSection();
           }
         })
@@ -63,5 +65,55 @@ export class UserSectionComponent implements OnInit {
   // reset inputs items to null or ''
   resetItems() {
     this.customService.resetComponentElement(this.formGroup);
+  }
+
+  // get user from db to update..
+  userSectionToUpdate;
+  getUserToUpdate(event) {
+    let section = event.target.innerText;
+    this.userSectionToUpdate = this.$userSections.find(user => {
+      return user.sction == section ;
+    });
+    if(this.userSectionToUpdate) {
+      this.formGroup.get('sction').setValue(this.userSectionToUpdate.sction);
+      this.formGroup.get('id').setValue(this.userSectionToUpdate.id);
+    } else {
+      this.customService.changeSuccessMessage("there is have no user found ... ", "danger", "DANGER!");
+    }
+  }
+
+  // then here update user section 
+  updateUserSection() {
+    if(this.userSectionToUpdate && this.formGroup.valid) {
+      this.adminIntegration.updateUsersSection(this.token,
+        this.userSectionToUpdate.id,
+        this.formGroup.value).subscribe(res => {
+          this.customService.changeSuccessMessage("user section updated successfully ...", "success", "SUCCESS!");
+          this.resetItems();
+          this.getAllUsersSection();
+      })
+    } else {
+      this.customService.changeSuccessMessage("we have an error to update this user section", "warning", "WARNING!");
+    }
+  }
+
+  // delete user section
+  userSectionToDelete;
+  deleteUserSection(event) {
+    let userDeleted = confirm('Are you sure ?'); 
+    if(userDeleted) {
+      let section = event.target.parentNode.previousSibling.innerHTML;
+      this.userSectionToDelete = this.$userSections.find(user => {
+        return user.sction == section ;
+      });
+      if(this.userSectionToDelete) {
+        this.adminIntegration.deleteUsersSectionById(this.token,this.userSectionToDelete.id).subscribe(res => {
+          this.customService.changeSuccessMessage("user section deleted successfully ...", "success", "SUCCESS!");
+          this.getAllUsersSection();
+        })
+      } else {
+        this.customService.changeSuccessMessage("there is no user section to delete ... ", "warning", "WARNING!");
+      }
+    }
   }
 }

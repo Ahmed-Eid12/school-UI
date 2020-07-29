@@ -10,9 +10,9 @@
                     </div>
                     <div class="buttons">
                         <button class="btn btn-success" (click)="saveNewUserSection()"> Save </button>
+                        <button class="btn btn-info" (click)="updateUserSection()"> Update </button>
+                        <button class="btn btn-primary" (click)="resetItems()"> Reset </button>
                         
-                        <button class="btn btn-info" (click)="resetItems()"> Reset </button>
-                        <!-- <button class="btn btn-info" (click)="loop()"> Loop </button> -->
                     </div>
                 </div>
             </form>
@@ -30,8 +30,8 @@
                 <tbody>
                 <tr *ngFor="let userSection of $userSections ; let i = index">
                   <th scope="row">{{i+1}}</th>
-                  <td>{{userSection.sction}}</td>
-                  <td><button class="btn btn-danger"> Delete </button></td>
+                  <td class="section" (click)="getUserToUpdate($event)">{{userSection.sction}}</td>
+                  <td><button class="btn btn-warning" (click)="deleteUserSection($event)"> Delete </button></td>
                 </tr>
                 </tbody>
               </table>
