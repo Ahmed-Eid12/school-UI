@@ -5,15 +5,22 @@
             <app-header></app-header>
           </div>
           <div class="content">
-            <div class="section1 section set-section">
-              <div class="avatar-img">
-                <img src="assets/serverUsersImage/{{userLogin.userInformation.image}}">
+            <div class="sections-slider">
+              <div class="section1 section set-section">
+                <div class="avatar-img">
+                  <img src="assets/serverUsersImage/{{userLogin.userInformation.image}}">
+                </div>
+  
+                <div class="user-info">
+                  <h4>{{userLogin.userName}}</h4>
+                  <h5>{{userLogin.userSection.sction}}</h5>
+                </div>
               </div>
 
-              <div class="user-info">
-                <h4>{{userLogin.userName}}</h4>
-                <h5>{{userLogin.userSection.sction}}</h5>
-              </div>
+            </div>
+
+            <div class="admin-slider section2">
+              <app-slider></app-slider>
             </div>
           </div>
         </div>

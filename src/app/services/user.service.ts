@@ -32,6 +32,9 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  // backend server URI
+  URI = 'https://localhost:8443/';
+
   // login web service
   /**
    * 
@@ -60,7 +63,7 @@ export class UserService {
   }
 
   login(loginRequest) {
-      return this.http.post('http://localhost:8080/userlogin/auth/',loginRequest).pipe(
+      return this.http.post(this.URI+'userlogin/auth/',loginRequest).pipe(
         catchError(this.errorHandler)
       );
   }
@@ -77,7 +80,7 @@ export class UserService {
    * 
    */
   register(user: User) {
-    return this.http.post('http://localhost:8080/userlogin/auth/register',user);
+    return this.http.post(this.URI+'userlogin/auth/register',user);
   }
 
   addNewUserParentis(parentis , userCode, sysParentisId,token) {
@@ -89,7 +92,7 @@ export class UserService {
       headers: new HttpHeaders(headerDict), 
     };
 
-    return this.http.post('http://localhost:8080/userlogin/auth/saveNewParentis/' + userCode + "/"+sysParentisId
+    return this.http.post(this.URI+'userlogin/auth/saveNewParentis/' + userCode + "/"+sysParentisId
     , parentis ,requestOptions);
   }
 
@@ -105,11 +108,11 @@ export class UserService {
     let formData = new FormData();
     formData.append('userInfo' , JSON.stringify(userInfo));
     formData.append('file' , image);
-    return this.http.post('http://localhost:8080/userlogin/auth/saveNewUserInfo/' + userCode+"/"+userSection , formData,requestOptions);
+    return this.http.post(this.URI+'userlogin/auth/saveNewUserInfo/' + userCode+"/"+userSection , formData,requestOptions);
   }
 
   addNewPreviousJob(preJob , userId) {
-    return this.http.post('http://localhost:8080/userlogin/auth/saveNewPreviousJob/' + userId , preJob);
+    return this.http.post(this.URI+'userlogin/auth/saveNewPreviousJob/' + userId , preJob);
   }
 
   // get all web service
@@ -139,7 +142,7 @@ export class UserService {
     const requestOptions = {                                                                                                                                                                                 
       headers: new HttpHeaders(headerDict), 
     };
-    return this.http.get('http://localhost:8080/userlogin/',requestOptions);
+    return this.http.get(this.URI+'userlogin/',requestOptions);
   }
 
   // get all web service check admin first
@@ -172,7 +175,7 @@ export class UserService {
     const requestOptions = {                                                                                                                                                                                 
       headers: new HttpHeaders(headerDict), 
     };
-    return this.http.post('http://localhost:8080/userlogin/checkAdminThenGetAllUsers',token,requestOptions);
+    return this.http.post(this.URI+'userlogin/checkAdminThenGetAllUsers',token,requestOptions);
   }
 
 }

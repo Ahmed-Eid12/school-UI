@@ -1,0 +1,10 @@
+<div #status class="content-status">
+    <div class="status-message">
+        <p >
+            <ngb-alert *ngIf="successMessage" type="{{messageType}}" (close)="successMessage = ''">
+                <strong>{{messageFace}}</strong> : {{ successMessage }}
+            </ngb-alert>
+          </p>
+          <!-- <button (click)='changeSuccessMessage()'>get result</button> -->
+    </div>
+</div>

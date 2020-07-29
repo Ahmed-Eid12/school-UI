@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
           this.storage.storeElement('_status' , this.userService.status);
 
           this.userService.getGeneratedToken = result.token;
+          console.log(this.userService.getGeneratedToken);
           this.storage.storeElement('_getGeneratedToken' , this.userService.getGeneratedToken);
 
           this.userService.user = result.user;

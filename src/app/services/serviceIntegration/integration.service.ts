@@ -12,6 +12,8 @@ export class IntegrationService {
     private http: HttpClient
     ) { }
 
+  // backend server URI
+  URI = 'https://localhost:8443/';
 
   /**
    * 
@@ -48,7 +50,7 @@ export class IntegrationService {
     const requestOptions = {                                                                                                                                                                                 
       headers: new HttpHeaders(headerDict), 
     };
-    return this.http.get('http://localhost:8080/schoole2ss/integration/getAllUserSectionList/',requestOptions);
+    return this.http.get(this.URI+'schoole2ss/integration/getAllUserSectionList/',requestOptions);
   }
 
 /**+
@@ -65,7 +67,7 @@ export class IntegrationService {
     const requestOptions = {                                                                                                                                                                                 
       headers: new HttpHeaders(headerDict), 
     };
-    return this.http.get('http://localhost:8080/schoole2ss/integration/getAllSysParentisList/',requestOptions);
+    return this.http.get(this.URI+'schoole2ss/integration/getAllSysParentisList/',requestOptions);
   }
 
 }

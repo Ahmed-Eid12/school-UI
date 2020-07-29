@@ -1,0 +1,28 @@
+.user-section-table {
+    background-color: white;
+    height: 400px;
+    overflow: auto;
+}
+.content {
+    margin: 40px 70px;
+    display: flex;
+    justify-content: center;
+}
+.user-section-contents {
+    text-align: left;
+}
+.form-user-section {
+    margin-bottom: 20px;
+}
+#user-required {
+    color: red;
+}
+#userSection {
+    width: 100%;
+}
+.btn {
+    margin-left: 10px;
+}
+.user-section-input {
+    display: flex;
+}

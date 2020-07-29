@@ -15,7 +15,8 @@ export class RegisterGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.userIsAdmin !== 0) {
+
+    if(this.userIsAdmin !== 0 && this.userIsAdmin) {
       return true;
     }
   }

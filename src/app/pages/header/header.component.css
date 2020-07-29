@@ -22,7 +22,8 @@ img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    cursor: pointer;
+    margin-right: 5px;
+
 }
 .nav-cnotact {
     align-self: center;
@@ -34,7 +35,7 @@ h3 {
 .avatar-content {
     position: relative;
 }
-.user-profile {
+/* .user-profile {
     position: absolute;
     width: max-content;
     margin: 10px;
@@ -47,9 +48,19 @@ h3 {
     box-shadow: 5px 5px 5px #6c757d;
     left: -80px;
     opacity: 0;
-}
+} */
 #logout .logout {
-    color: blue;
+    color: rgb(54, 54, 209);
     text-decoration: underline;
     cursor: pointer;
+}
+#drop-user {
+    text-align: center;
+    margin-top: 10px;
+}
+.pro {
+    display: flex;
+    background-color: white;
+    align-items: center;
+    color: black;
 }

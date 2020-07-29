@@ -1,1 +1,40 @@
-<p>slider works!</p>
+<div class="admin-slider" *ngIf='userIsAdmin !== 0'>
+    <ul class="list-group hover">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <a [routerLink]="['/register']">
+            <span><i class="fas fa-registered"></i> Register New User</span>
+            <!-- <span class="badge badge-primary badge-pill">14</span> -->
+            </a>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a [routerLink]="['/userInAdmin']">
+              <span><i class="fas fa-info-circle"></i> Number of Users Have no Informations</span>
+              <span class="badge badge-primary badge-pill">{{UsersCount}}</span>
+            </a>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <a [routerLink]="['/userSection']">
+            <span><i class="fas fa-receipt"></i> User Section</span>
+            <!-- <span class="badge badge-primary badge-pill">1</span> -->
+          </a>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span><i class="fab fa-odnoklassniki"></i> User Parentis</span>
+          <!-- <span class="badge badge-primary badge-pill">1</span> -->
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span><i class="fab fa-odnoklassniki"></i> User Section</span>
+          <!-- <span class="badge badge-primary badge-pill">1</span> -->
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span><i class="fab fa-odnoklassniki"></i> User Section</span>
+          <!-- <span class="badge badge-primary badge-pill">1</span> -->
+        </li>
+        
+      </ul>
+</div>

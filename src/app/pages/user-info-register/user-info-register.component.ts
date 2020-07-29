@@ -111,10 +111,9 @@ export class UserInfoRegisterComponent implements OnInit {
   // registeration about information , previous job and parentis
   saveInformation() {
     this.userService.addNewUserInformation(this.formGroup.value , 
-      this.userService.userRegisteredCode , this.formGroup.get('userSection').value ,
+      this.getGeneratedUserCode , this.formGroup.get('userSection').value ,
        this.selectedImage ,this.getGeneratedToken)
     .subscribe(result => {
-      console.log(result);
     })
   }
 
@@ -122,14 +121,12 @@ export class UserInfoRegisterComponent implements OnInit {
     this.userService.addNewUserParentis(this.formParentisGroup.value , this.getGeneratedUserCode,
       this.formParentisGroup.get('stud_parentis').value , this.getGeneratedToken)
     .subscribe(result => {
-      console.log(result);
     })
   }
 
   savePreviousJob() {
     this.userService.addNewPreviousJob(this.formGroup.get('formPreJobGroup').value , this.getGeneratedUserId)
     .subscribe(result => {
-      console.log(result);
     })
   }
 

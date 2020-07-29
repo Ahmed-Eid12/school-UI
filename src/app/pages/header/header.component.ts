@@ -20,7 +20,6 @@ export class HeaderComponent implements OnInit {
   userLogin = this.storeData.getStoreElement('_user');
   userIsAdmin = this.storeData.getStoreElement('_userIsAdmin');
 
-  apperDropDown: boolean = false;
   userStatus = false;
   ngOnInit(): void {
     if(this.userLogin) {
@@ -33,15 +32,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  apperProfile() {
-    if(this.userLogin) {
-      this.profile.nativeElement.style.opacity = 1;
-      this.apperDropDown = !this.apperDropDown;
-    } else {
-      this.profile.nativeElement.style.opacity = 0;
-    }
-  }
-
   logout() {
     this.userService.status = false;
     this.storeData.deleteStorageElement('_status');
@@ -51,6 +41,8 @@ export class HeaderComponent implements OnInit {
     this.storeData.deleteStorageElement('_user');
     this.userService.userIsAdmin = 0;
     this.storeData.deleteStorageElement('_userIsAdmin');
+    this.storeData.deleteStorageElement('_user_code');
+    this.storeData.deleteStorageElement('_user_ids');
     this.router.navigate(['/login']);
   }
 

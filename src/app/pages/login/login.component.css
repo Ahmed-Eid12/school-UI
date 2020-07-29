@@ -3,7 +3,10 @@
     height: 70%;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     display: flex;
+    background: url(/assets/logo.svg) center center;
+    background-size: cover;
 }
 .email-content {
     display: flex;
@@ -12,7 +15,7 @@ form {
     padding: 50px 40px;
     border: 1px solid #929292;
     border-radius: 10px;
-    background-color: white;
+    background: transparent;
     box-shadow: 5px 10px 10px #6c757d;
 }
 form input[type='text'],input[type='password'] {
@@ -38,4 +41,12 @@ a {
 }
 .btn {
     width: 100px;
+}
+label {
+    color: crimson;
+}
+.login-text h1 {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: bolder;
+    color: rgb(85, 85, 85);
 }

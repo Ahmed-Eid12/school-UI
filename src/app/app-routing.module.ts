@@ -11,6 +11,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { UserGuard } from './guards/userGuard/user.guard';
 import { UserInfoRegisterComponent } from './pages/user-info-register/user-info-register.component';
+import { UserNoInfoComponent } from './adminPagers/user-no-info/user-no-info.component';
+import { UserSectionComponent } from './adminPagers/user-section/user-section.component';
 
 
 const routes: Routes = [
@@ -39,7 +41,14 @@ const routes: Routes = [
     path: '',
     component: DefaultLayoutComponent,
     children: [
-      
+      {
+        path: 'userInAdmin',
+        component: UserNoInfoComponent
+      },
+      {
+        path: 'userSection',
+        component: UserSectionComponent
+      }
     ]
   },
   {

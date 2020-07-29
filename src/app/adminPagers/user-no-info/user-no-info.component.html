@@ -1,0 +1,24 @@
+<div class="user-update-information">
+    <div class="users-content">
+        <ul class="list-group">
+            <li *ngFor="let users of UserList" class="list-group-item list-group-item-action">
+                <div class="content">
+                    <div class="avatar-img">
+                        <img src="assets/avatar.svg">
+                    </div>
+        
+                    <div class="user-info">
+                        <h4 class="name">{{users.userName}}</h4>
+                        <small>this user have no information. do you want to add 
+                            <button (click)="onClick($event)" class="btn btn-outline-dark">Information</button></small>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- page of user niforamtions -->
+    <div class="user-info-page">
+        <app-user-info-register *ngIf="userStatus"></app-user-info-register>
+    </div>
+</div>

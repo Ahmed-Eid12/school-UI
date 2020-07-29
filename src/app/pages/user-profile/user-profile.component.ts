@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { StoreDataService } from 'src/app/services/storage/store-data.service';
+import { AdminIntegrationService } from 'src/app/services/adminServices/AdminIntegrationService';
 
 @Component({
   selector: 'app-user-profile',
@@ -9,6 +10,7 @@ import { StoreDataService } from 'src/app/services/storage/store-data.service';
 })
 export class UserProfileComponent implements OnInit {
   userLogin;
+  token;
   constructor(private userService: UserService,
     private storeData: StoreDataService) { }
 

@@ -15,7 +15,12 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { UserInfoRegisterComponent } from './pages/user-info-register/user-info-register.component';
 import { SliderComponent } from './pages/slider/slider.component';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UserNoInfoComponent } from './adminPagers/user-no-info/user-no-info.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { UserSectionComponent } from './adminPagers/user-section/user-section.component';
+import { UserParentisComponent } from './adminPagers/user-parentis/user-parentis.component';
+import { PageStatusComponent } from './utils/page-status/page-status.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,11 @@ import { SliderComponent } from './pages/slider/slider.component';
     NotFoundComponent,
     UserProfileComponent,
     UserInfoRegisterComponent,
-    SliderComponent
+    SliderComponent,
+    UserNoInfoComponent,
+    UserSectionComponent,
+    UserParentisComponent,
+    PageStatusComponent
   ],
   imports: [
     BrowserModule,
@@ -37,8 +46,8 @@ import { SliderComponent } from './pages/slider/slider.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    // FontAwesomeModule,
-    // AngularFontAwesomeModule
+    NgbModule,
+    NgbPaginationModule, NgbAlertModule
   ],
   providers: [
   ],

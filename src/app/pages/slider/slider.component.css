@@ -1,0 +1,11 @@
+.admin-slider .hover li:hover ,.admin-slider .hover li:hover a{
+    background-color: rgb(62, 62, 90);
+    color: white;
+}
+.admin-slider .hover li a{
+    text-decoration: none;
+    color: black;
+}
+.admin-slider .hover li a {
+    display: contents;
+}
